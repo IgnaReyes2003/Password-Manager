@@ -3,6 +3,7 @@ from getpass import getpass
 from tabulate import tabulate
 from Conexion import *
 import Usuario
+import Contrasena
 
 conexion = conectar()
 crear_tablas(conexion)
@@ -31,6 +32,8 @@ def inicio():
             print("Contraseña correcta, Bienvenido")
             menu()
 
+
+
 def menu():
     while True:
         print("Seleccione una de las siguientes opciones: ")
@@ -42,7 +45,7 @@ def menu():
         print("\t6- Salir del programa")
         opcion = input("Seleccione una opción:")
         if opcion == "1":
-            print("funciona")
+            nueva_contrasena()
         elif opcion == "2":
             print("funciona")
         elif opcion == "3":
@@ -55,5 +58,14 @@ def menu():
             break
         else: 
             print("Por favor, seleccione una de las opciones propuestas anteriormente.")
+
+def nueva_contrasena():
+    nombre = input("Ingrese el nombre: ")
+    url= input("Ingrese una url: ")
+    nombre_usuario= input("Ingrese el nombre de usuario: ")
+    contrasena= input("Ingrese la contraseña: ")
+    descripcion= input("Ingrese la descripción: ")
+    respuesta= Contrasena.registrar(nombre, url, nombre_usuario, contrasena, descripcion)
+    print(respuesta)
 
 inicio()
