@@ -4,7 +4,7 @@ def registrar(nombre, url, nombre_usuario, contrasena, descripcion):
     try:
         conexion = conectar()
         cursor = conexion.cursor()
-        sentencia_sql = '''INSERT INTO TABLE contrasena (
+        sentencia_sql = '''INSERT INTO contrasena (
         nombre, url, nombre_usuario, contrasena, descripcion)
         VALUES (?, ?, ?, ?, ?)'''
         datos = (nombre, url, nombre_usuario, contrasena, descripcion)
